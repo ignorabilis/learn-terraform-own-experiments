@@ -2,15 +2,6 @@
 # SPDX-License-Identifier: MPL-2.0
 
 terraform {
-  /* Uncomment this block to use Terraform Cloud for this tutorial
-  cloud {
-      organization = "organization-name"
-      workspaces {
-        name = "learn-terraform-resource-targeting"
-      }
-  }
-  */
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -21,8 +12,20 @@ terraform {
       source  = "hashicorp/random"
       version = "~> 3.1.0"
     }
+
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.9.1"
+    }
   }
 
-  required_version = "~> 1.2.0"
+  required_version = "~> 1.4.0"
+
+  cloud {
+    organization = "ignorabilis"
+    workspaces {
+      name = "learn-terraform-resource-targeting"
+    }
+  }
 }
 
